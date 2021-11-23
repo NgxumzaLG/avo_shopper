@@ -4,17 +4,20 @@ let AvoShopper = require("../avo-shopper");
 const Pool = pg.Pool;
 require('dotenv').config()
 
-const connectionString = process.env.DATABASE_URL || 'postgresql://avos:avos123@localhost:5432/avo_shopper';
+const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/avo_shopper_test';
 
 const pool = new Pool({
-    connectionString
+    connectionString,
+    ssl : {
+		rejectUnauthorized:false
+	}
 });
 
 describe('The avo shopper', function () {
 
     beforeEach(async function () {
         await pool.query(`delete from avo_deal;`)    
-        await pool.query(`delete from shop;`)    
+        // await pool.query(`delete from shop;`)    
     });
 
     it('should be able to create a shop', async function () {

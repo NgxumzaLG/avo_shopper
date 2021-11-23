@@ -1,1 +1,60 @@
-<h2>Best deals</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avo Shopper</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+
+     <div class="container-lg">
+         <div class="row show-links">
+             <div class="col-md-4 mt-5 all-links">
+                 <h5 class="text-dark">Looking for Avocado's best deals?, well you have come to the right spot!!</h5>
+                 {{!-- <div class="m-3">
+                      <a class="btn btn-dark" href="/avo_deals">Show Deals</a>
+                 </div> --}}
+                 <div class="by-shop m-1">
+                             <form action="/avo_deals" method="post">
+                                <select name="the_shops" class="mt-1 p-1" id="">
+                                    <option value="">Select shop</option>
+                                    {{#each allShops}}
+                                        <option value="{{id}}">{{name}}</option>
+                                    {{/each}}
+                                </select> 
+                                <span><button class="btn btn-dark" type="submit">Show Deals</button></span>
+                            </form>
+                </div>
+
+                 <div class="m-3"> 
+                     <a class="btn btn-outline-dark" href="/top_five">Top 5 Deals</a>
+                 </div>
+
+                 <h5 class="text-dark">Have a shop or deals to add?, don't hesitate add one now!!</h5>
+                 <div class="m-3">
+                      <a class="btn btn-outline-dark" href="/add_deal">Add Deal</a>
+                 </div>
+                 <div class="m-3"> 
+                     <a class="btn btn-outline-dark" href="/add_shop">Add Shop</a>
+                 </div>
+
+                 {{!-- <div class="home-link">
+                     <a href="/">Home</a>
+                 </div> --}}
+
+             </div>
+             <div class="col-md-1 mt-5"></div>
+            <div class="col-md-7 mt-3 home">
+                <img class="img-fluid home-img" src="ORZY890.jpg" alt="home-img">
+
+            </div>
+         </div>
+
+     </div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+     <div class="container-lg">
+        <section>
+            <div class="row">
+                <div class="col-md-3 my-4 mx-3 card bg-dark filter">
+                    <div class="card-header text-white">
+                        <h5>Filter Deals</h5>
+                    </div>
+                    <div class="card-body text-white">
+
+                        <div class="recommend my-3">
+                            <form action="" method="post">
+                                <h5>:Recommended Deals:</h5>
+                                <input type="text" name="rec_amount" placeholder="Enter amount" id="">
+                                <button class="btn my-2 btn-filter">Filter</button>
+                            </form>
+
+                        </div>
+                       
+                        
+                    </div>
+                </div>
+                {{!-- <div class="col-sm-1"></div> --}}
+
+                <div class="col-md-8 my-4 card">
+                    <div class="card-header mb-2">
+                        <h5 class="text-dark">Top 5 Deals!</h5>
+                    </div>
+
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Shop</th>
+                                    <th>Deal</th>
+                                    <th>per Unit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each topDeals}}
+                                <tr>
+                                    <td><img class="avo-icon" src="avocado.png" alt="Avo logo"></td>
+                                    <td>{{shop_name}}</td>
+                                    <td>{{qty}} for R{{price}}</td>
+                                    <td>R{{unit_price}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+
+                        <div class="home-link">
+                            <a href="/">Home</a>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </section>

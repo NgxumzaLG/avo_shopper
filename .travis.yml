@@ -1,14 +1,16 @@
 language: node_js
 
 env:
-  - DATABASE_URL=postgresql://postgres@localhost:5432/avo_shopper
+  - DATABASE_URL=postgresql://postgres@localhost:5432/avo_shopper_test;
 
 node_js:  
   - 12
 
 before_script:
-  - psql -c 'create database  avo_shopper;' -U postgres
-  - psql -U postgres -d avo_shopper -a -f ./sql/tables.sql
+  - psql -c 'create database  avo_shopper_test;' -U postgres
+  - psql -U postgres -d avo_shopper_test -a -f ./sql/tables.sql
+  - psql -U postgres -d avo_shopper_test -a -f data.sql
+
 
 services:
   - postgresql

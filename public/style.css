@@ -4,7 +4,60 @@ body {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.container{
-	margin: auto;
-	width: 80%;
+.logo h5 {
+    margin: 0;
+    padding: 10px 0 ;
 }
+
+.all-links {
+	text-align: center;
+}
+
+.home-img {
+	border-radius: 10px;
+}
+
+.show-links {
+	justify-content: center;
+	align-items: center;
+}
+
+.filter input, .deal-text input{
+    border: 1px solid lightseagreen;
+	border-radius:3px;
+}
+
+.by-shop select, .theShops select {
+	border: 1px solid lightseagreen;
+	border-radius:3px;
+	min-width: 160px;
+	height: 38px;
+}
+
+.header{
+    border-bottom: 2px solid white;
+}
+
+.card-header {
+	border-bottom: 2px solid lightseagreen;
+
+}
+
+.btn-filter {
+	background-color: lightseagreen;
+	color: white;
+}
+
+.deal-text {
+	text-align: center;
+}
+
+tbody img {
+	width: 35px;
+}
+
+.home-link {
+	text-align: center;
+}
+
+
