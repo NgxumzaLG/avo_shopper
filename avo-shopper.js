@@ -1,4 +1,5 @@
 module.exports = function(pool) {
+	let amount = 0;
 
 	async function createShop(shopName) {
 		const result = await pool.query(`insert into shop (name) values ($1) returning id`, [shopName]);
@@ -9,7 +10,7 @@ module.exports = function(pool) {
 	}
 
 	async function listShops() {
-		const result = await pool.query(`select * from shop`);
+		const result = await pool.query(`select * from shop order by name`);
 		return result.rows;
 	}
 
@@ -43,13 +44,24 @@ module.exports = function(pool) {
 		return result.rows;
 	}
 
+	function setAmount(recAmount) {
+		amount = recAmount;
+
+	}
+
+	function getAmount() {
+		return amount;
+	}
+
 	return {
 		createDeal,
 		createShop,
 		listShops,
 		dealsForShop,
 		recommendDeals,
-		topFiveDeals
+		topFiveDeals,
+		setAmount,
+		getAmount
 	}
 
 

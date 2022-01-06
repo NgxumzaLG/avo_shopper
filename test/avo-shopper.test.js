@@ -4,7 +4,7 @@ let AvoShopper = require("../avo-shopper");
 const Pool = pg.Pool;
 require('dotenv').config()
 
-const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/avo_shopper_test';
+const connectionString = process.env.DATABASE_URL || 'postgresql://lusanda:pg123@localhost:5432/avo_shopper_test';
 
 const pool = new Pool({
     connectionString,
@@ -53,18 +53,12 @@ describe('The avo shopper', function () {
 		const shopId = await avoShopper.createShop('Veggie Tales');
 		await avoShopper.createDeal(shopId, 5, 28);
 
-        // assert.deepStrictEqual([], taxiTrips.findTaxisForRegion('Durban'));
-        // assert.deepStrictEqual([], taxiTrips.findTaxisForRegion('Cape Town'));
-        // assert.deepStrictEqual([], taxiTrips.findTaxisForRegion('Gauteng'));
-
     })
 
     it('should return all the deals for a given shop', async function () {
 
         const avoShopper = AvoShopper(pool);
-        
-        // assert.deepStrictEqual([], taxiTrips.findTripsByRegNumber('...'));
-        // assert.deepStrictEqual([], taxiTrips.findTripsByRegNumber('***'));
+
 
     });
 

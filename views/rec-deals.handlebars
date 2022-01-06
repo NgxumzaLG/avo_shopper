@@ -1,26 +1,27 @@
-     <div class="container-lg">
+<div class="container-lg">
         <section>
             <div class="row">
                 <div class="col-md-3 my-4 mx-3 card bg-dark filter">
                     <div class="card-header text-white">
-                        <h5>Shops</h5>
+                        <h5>Filter Deals</h5>
                     </div>
                     <div class="card-body text-white">
-
-                        <div class="my-3">
-                            {{#each avaiShops}}
-                                <h5><span><img class="shop-icon" src="fruit-shop.png" alt="Avo logo"></span> {{name}}</h5>
-
-                            {{/each}}
+                        <div class="recommend my-3">
+                            <form action="rec_amount" method="POST">
+                                <h5>:Recommended Deals:</h5>
+                                <input type="text" name="amount" placeholder="Enter amount" id="">
+                                <button class="btn my-2 btn-filter">Filter</button>
+                            </form>
 
                         </div>
+                       
                         
                     </div>
                 </div>
 
                 <div class="col-md-8 my-4 card">
                     <div class="card-header mb-2">
-                        <h5 class="text-dark">Top 5 Deals!</h5>
+                        <h5 class="text-dark">Avocado Deals</h5>
                     </div>
 
                     <div class="card-body">
@@ -34,10 +35,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{#each topDeals}}
+                                {{#each recoDeals}}
                                 <tr>
                                     <td><img class="avo-icon" src="avocado.png" alt="Avo logo"></td>
-                                    <td>{{shop_name}}</td>
+                                    <td>{{name}}</td>
                                     <td>{{qty}} for R{{price}}</td>
                                     <td>R{{unit_price}}</td>
                                 </tr>

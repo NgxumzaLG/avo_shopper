@@ -52,12 +52,21 @@ body {
 	text-align: center;
 }
 
-tbody img {
+.avo-icon {
 	width: 35px;
+}
+
+.shop-icon {
+	width: 35px;
+	margin-right: 3px;
 }
 
 .home-link {
 	text-align: center;
+}
+
+.big-icon {
+	width: 100%;
 }
 
 

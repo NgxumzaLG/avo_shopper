@@ -1,18 +1,30 @@
+ 
      <div class="container-lg">
         <section>
-            <div class="row">
-                <div class="col-sm-2"></div>
+             <div class="row">
+                <div class="col-md-3 my-4 mx-3 card bg-dark filter">
+                    <div class="card-header text-white">
+                        <h5>Shops</h5>
+                    </div>
+                    <div class="card-body text-white">
 
-                <div class="col-sm-8 my-4 mx-2 card">
-                    <div class="card-header mb-3 text-dark">
+                        <img class="img-fluid big-icon" src="/fruit-shop.png" alt="shop">
+        
+                        
+                    </div>
+                </div>
+                
 
-                        <h5>Avocado Deals</h5>
+                <div class="col-md-8 my-4 card">
+                    <div class="card-header mb-2">
+                        <h5 class="text-dark">Top 5 Deals!</h5>
                     </div>
 
-                    <div class="card-body text-dark deal-text">
+                    <div class="card-body">
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Id</th>
                                     <th>Deal</th>
                                 </tr>
@@ -20,6 +32,7 @@
                             <tbody>
                                 {{#each selectedShopDeals}}
                                 <tr>
+                                    <td><img class="avo-icon" src="/avocado.png" alt="Avo logo"></td>
                                     <td>{{id}}</td>
                                     <td>{{qty}} for R{{price}}</td>
                                     
@@ -31,14 +44,16 @@
                         <div class="home-link">
                             <a href="/">Home</a>
                         </div>
+                       
                     </div>
                 </div>
 
-                <div class="col-sm-2"></div>
+                <div class="col-md-1"></div>
+
             </div>
+            
 
         </section>
-
 
 
     </div>

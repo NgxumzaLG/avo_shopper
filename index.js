@@ -1,16 +1,16 @@
 const express = require('express');
 const exphbs  = require('express-handlebars');
-let AvoShopper = require("./avo-shopper");
-const pg = require("pg");
+let AvoShopper = require('./avo-shopper');
+const pg = require('pg');
 const Pool = pg.Pool;
 
 const app = express();
 const PORT =  process.env.PORT || 3019;
 
-const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/avo_shopper';
+const connectionString = process.env.DATABASE_URL || 'postgresql://lusanda:pg123@localhost:5432/avo_shopper';
 
 const pool = new Pool({
-    connectionString,
+	connectionString,
 	ssl : {
 		rejectUnauthorized:false
 	}
@@ -33,7 +33,8 @@ app.set('view engine', 'handlebars');
 // let counter = 0;
 
 app.get('/', async function(req, res) {
-	const allShops = await avoShopper.listShops()
+	const allShops = await avoShopper.listShops();
+
 	res.render('index', {
 		allShops
 	});
@@ -42,7 +43,7 @@ app.get('/', async function(req, res) {
 app.post('/avo_deals', async function(req, res) {
 	const shopId = req.body.the_shops;
 
-	if (shopId != '') {
+	if (shopId != '') {		
 		res.redirect(`/avo_deals/${shopId}`);
 
 	} else {
@@ -59,16 +60,42 @@ app.get('/avo_deals/:id', async function(req, res) {
 	});
 });
 
+app.get('/filter', function(req, res) {
+
+	res.render('rec-deals');
+});
+
+app.post('/rec_amount', function(req, res) {
+	avoShopper.setAmount(req.body.amount);
+
+	res.redirect('/recommend_deals');
+});
+
+app.get('/recommend_deals', async function (req, res) {
+	const theAmount = await avoShopper.getAmount();
+	if (theAmount != 0) {
+		const recoDeals = await avoShopper.recommendDeals(theAmount);
+
+		res.render('rec-deals', {recoDeals});
+
+	} else {
+		res.redirect('/filter')
+		
+	}
+});
+
 app.get('/top_five', async function(req, res) {
-	const topDeals = await avoShopper.topFiveDeals()
+	const topDeals = await avoShopper.topFiveDeals();
+	const avaiShops = await avoShopper.listShops();
 	
 	res.render('top-deals', {
-		topDeals
+		topDeals,
+		avaiShops
 	});
 });
 
 app.get('/add_deal', async function(req, res) {
-	const theShops = await avoShopper.listShops()
+	const theShops = await avoShopper.listShops();
 	res.render('add-deal', {
 		theShops
 	});
@@ -96,5 +123,5 @@ app.post('/update_shops', async function(req, res) {
 
 // start  the server and start listening for HTTP request on the PORT number specified...
 app.listen(PORT, function() {
-	console.log(`AvoApp started on port ${PORT}`)
+	console.log(`AvoApp started on port ${PORT}`);
 });
